@@ -24,9 +24,11 @@ export default function LoginPage() {
     e.preventDefault();
 
     try {
-      const res = await fetch(
-        `https://backendrailways-production-6735.up.railway.app/auth/login?username=${username}&password=${password}`
-      );
+   const res = await fetch(
+  `https://backendrailways-production-6735.up.railway.app/auth/login?username=${encodeURIComponent(
+    username
+  )}&password=${encodeURIComponent(password)}`
+);
 
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
